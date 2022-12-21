@@ -1,0 +1,93 @@
+---
+title: "Preperation for the TFA exam in R"
+author:
+  - name: Jonas Dalkjær Rasmussen
+    affiliation: cand.merc (OSCM)
+  - name: Mikkel Bannerholt
+    affiliation: cand.merc (OSCM)
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+date: "`r Sys.Date()`"
+---
+
+<!-- Setting up the document -->
+```{r setup, include=FALSE}
+# set default chunk options
+knitr::opts_chunk$set(
+  echo = TRUE,
+  cache = TRUE,
+  autodep = TRUE
+  )
+```
+
+<!-- Some css for the comments (delete) -->
+```{css, echo=FALSE}
+.comment {
+  color: gold;
+  border-style: dashed;
+  border-width: thin;
+  padding: 10px;
+}
+```
+
+
+<!-- Content starts here -->
+# This is the master template used when studying for the exam in TFA.
+
+### Shortcuts
+
+Create a new chunk: **cmd + opt + i**  
+Create a pipe: **cmd + shift + m** 
+Comment/uncomment: **cmd + shift + c** 
+
+
+
+
+### Working with packages
+
+A package is loaded with the `library` command:
+```{r}
+library(tidyverse)
+```
+
+
+
+
+
+
+
+## Colophon 
+<!-- Always keep this section for reproducibility -->
+
+This report has been created inside [RStudio](http://www.rstudio.com/ide/) using [R Markdown](https://rmarkdown.rstudio.com/). 
+
+The report was built using:
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+session <- devtools::session_info()
+session$platform
+```
+
+Along with these packages:
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+session$packages %>% 
+  select(package, loadedversion, date, source) %>% 
+  DT::datatable(rownames = FALSE,
+                class = 'cell-border stripe',
+                filter = list(position = 'top'),
+                options = list(pageLength = 5, 
+                           autoWidth = FALSE,
+                           bInfo = FALSE,
+                           paging = TRUE))
+```
+
+
+
+
+
+
+
+
